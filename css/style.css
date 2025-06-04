@@ -774,4 +774,6 @@ footer::before {
     width: 80vw;
     margin-top: 35px;
   }
+  #about .about-container .about-text {
+    width: auto;
 }
