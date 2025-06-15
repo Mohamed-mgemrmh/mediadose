@@ -62,7 +62,7 @@ const translations = {
     // about page 
     aboutTitle: 'About Us',
     aboutText: 'At our design firm, we aspire to reshape the world of visual creativity by offering design solutions that combine beauty and function. We believe that every idea deserves to be visually told in ways that inspire and impact. Through a deep understanding of our clients needs, we create designs that come to life and leave a lasting impact, while adhering to quality and excellence in every detail.',
-    goals: 'أهدافنا',
+    goals: 'Goals',
     
     vision: 'Vision',
     visionText: 'Lets make Media Doz the leading and preferred choice for providing innovative marketing solutions to the healthcare sector in the Kingdom of Saudi Arabia.',
