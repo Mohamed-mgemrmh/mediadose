@@ -89,15 +89,39 @@
         <div class="container">
           <form data-aos="fade-up" action="" method="POST">
             <h2 data-translate="formTitle" class="title">في انتظار رسائلك !</h2>
-          <div class="input-container">
-            <input class="input" type="text" placeholder="name" />
-            <input class="input" type="text" placeholder="phone" />
+            <div class="input-container">
+              <input name="name" class="input" type="text" placeholder="name" />
+              <input
+                name="phone"
+                class="input"
+                type="text"
+                placeholder="phone"
+              />
+            </div>
+            <input
+              name="email"
+              class="input"
+              type="text"
+              placeholder="E-mail"
+            />
+            <textarea
+              name="message"
+              class="input textarea"
+              type="text"
+              placeholder="messege"
+            ></textarea>
+            <button
+              type="submit"
+              data-translate="formButton"
+              class="button secondary"
+              data-btn="إرسال"
+            >
+              إرسال
+            </button>
+          </form>
+          <div data-aos="fade-up" class="contact-img">
+            <img src="images/hero-img.png" alt="" />
           </div>
-          <input class="input" type="text" placeholder="E-mail" />
-          <textarea class="input textarea" type="text" placeholder="messege"></textarea>
-          <button data-translate="formButton" class="button secondary" data-btn="إرسال">إرسال</button>  
-        </form>
-          <div data-aos="fade-up" class="contact-img"><img src="images/hero-img.png" alt=""></div>
         </div>
       </section>
       <div class="footer" id="footer">
@@ -177,6 +201,28 @@
     <script>
       AOS.init({
         duration: 1000,
+      });
+      const form = document.querySelector("form");
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+        fetch(
+          "https://script.google.com/macros/s/AKfycbw44dI7_EQhz7yK1Q8h1l_XAdgJMvRsxLqQBVSKNwQdkFurIo6i-6w30MCahaYDbY1-UA/exec",
+          {
+            method: "POST",
+            body: formData,
+          }
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            alert(data.message);
+            form.reset();
+          })
+          .catch((err) => {
+            console.error(err);
+            alert("Submission failed.");
+          });
       });
     </script>
   </body>
