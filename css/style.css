@@ -108,22 +108,7 @@ a {
 .button:hover::before {
   left: 0%;
 }
-html[dir="ltr"] {
-  .button::before {
-    left: unset;
-    right: 100%;
-  }
-  .button:hover::before {
-    right: 0;
-  }
-  .footer .contact .contact-link {
-    direction: ltr;
-  }
-  #contact .container form .button {
-    margin-right: 0;
-    margin-left: auto;
-  }
-}
+
 .button:hover::after {
   opacity: 1;
 }
@@ -333,8 +318,60 @@ nav .container .nav-ul a:hover::before {
   margin-bottom: 20px;
   max-width: 550px;
 }
+@keyframes upDownLTR {
+  0%, 100% {
+    transform: translateY(0) scaleX(1);
+  }
+  50% {
+    transform: translateY(-15px) scaleX(1);
+  }
+}
+
+@keyframes upDownRTL {
+  0%, 100% {
+    transform: translateY(0) scaleX(-1);
+  }
+  50% {
+    transform: translateY(-15px) scaleX(-1);
+  }
+}
+
 #hero .container .img img {
   width: 700px;
+  animation: upDownLTR 2s ease-in-out infinite;
+}
+
+html[dir="rtl"] #hero .container .img img {
+  animation: upDownRTL 2s ease-in-out infinite;
+}
+
+html[dir="ltr"] {
+  #hero .container .img img {
+    transform: scaleX(1);
+  }
+  @keyframes upDown {
+    0%,
+    100% {
+      transform: translateY(0) scaleX(-1);
+    }
+    50% {
+      transform: translateY(-15px) scaleX(-1);
+    }
+  }
+  .button::before {
+    left: unset;
+    right: 100%;
+  }
+  .button:hover::before {
+    right: 0;
+  }
+  .footer .contact .contact-link {
+    direction: ltr;
+  }
+  #contact .container form .button {
+    margin-right: 0;
+    margin-left: auto;
+  }
 }
 /* service  */
 
@@ -757,7 +794,7 @@ footer::before {
   nav .container .logo img {
     width: 50px;
   }
-  
+
   #hero .container {
     flex-direction: column;
     text-align: center;
@@ -906,8 +943,8 @@ footer::before {
   footer {
     font-size: 18px;
   }
-  
-  #messeges .items-container  {
+
+  #messeges .items-container {
     display: flex;
     flex-direction: column;
     align-items: center;
